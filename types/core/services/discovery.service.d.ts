@@ -1,4 +1,4 @@
-import {IAbstractService} from "./abstract.service";
+import {IAbstractService} from "@Core/Types";
 
 export interface IDiscoveryService extends IAbstractService {}
 

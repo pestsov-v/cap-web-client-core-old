@@ -7,4 +7,5 @@ export const CoreSymbols = {
 
   // Services
   DiscoveryService: Symbol('DiscoveryService'),
+  GetawayService: Symbol('GetawayService'),
 } as const;

@@ -16,7 +16,8 @@ export abstract class AbstractService implements IAbstractService {
     public async start(): Promise<void> {
         try {
             if (await this.init()) {
-                console.log(`${this._SERVICE_NAME} service has been started.`)
+                const serviceName = this._SERVICE_NAME.endsWith('1') ? this._SERVICE_NAME.replace('1', '') : this._SERVICE_NAME
+                console.log(`${serviceName} service has been started.`)
             }
         } catch (e) {
             throw e
