@@ -4,12 +4,10 @@ import {CoreSymbols} from "@CoreSymbols";
 
 import { Initiator } from '../initiator';
 import {ServiceConnector} from '../connectors';
-import {  DiscoveryService} from '../services';
+import {  DiscoveryService, GetawayService, LoggerService} from '../services';
 
 import {Inversify} from "@Packages/Types";
-import { IGetawayService, IInitiator, IServiceConnector} from "@Core/Types";
-import {GetawayService} from "../services/getaway.service";
-import {IDiscoveryService} from "../../../types/core/services/discovery.service";
+import {IGetawayService, IInitiator, IServiceConnector, IDiscoveryService, ILoggerService} from "@Core/Types";
 
 
 export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.Bind) => {
@@ -22,4 +20,5 @@ export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.B
   // Services
   bind<IDiscoveryService>(CoreSymbols.DiscoveryService).to(DiscoveryService).inSingletonScope();
   bind<IGetawayService>(CoreSymbols.GetawayService).to(GetawayService).inSingletonScope()
+  bind<ILoggerService>(CoreSymbols.LoggerService).to(LoggerService).inSingletonScope()
 });

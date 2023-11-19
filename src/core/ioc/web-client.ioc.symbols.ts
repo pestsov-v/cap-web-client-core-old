@@ -8,4 +8,5 @@ export const CoreSymbols = {
   // Services
   DiscoveryService: Symbol('DiscoveryService'),
   GetawayService: Symbol('GetawayService'),
+  LoggerService: Symbol('LoggerService'),
 } as const;
