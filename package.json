@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "inversify": "^6.0.2",
+    "mapbox-gl": "^2.15.0",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-map-gl": "^7.1.6",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@types/node": "^20",
