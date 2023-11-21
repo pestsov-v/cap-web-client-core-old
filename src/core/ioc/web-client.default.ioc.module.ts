@@ -13,9 +13,11 @@ import {
   IServiceConnector,
   IDiscoveryService,
   ILoggerService,
-  IMapboxIntegration, ILocalizationService
+  IMapboxIntegration, ILocalizationService, IFunctionalityAgent, ISchemaLoader
 } from "@Core/Types";
 import {MapboxIntegration} from "../integrations";
+import {FunctionalityAgent} from "../agents";
+import {SchemaLoader} from "../loaders/schema.loader";
 
 
 export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.Bind) => {
@@ -34,4 +36,10 @@ export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.B
   bind<IGetawayService>(CoreSymbols.GetawayService).to(GetawayService).inSingletonScope()
   bind<ILoggerService>(CoreSymbols.LoggerService).to(LoggerService).inSingletonScope()
   bind<ILocalizationService>(CoreSymbols.LocalizationService).to(LocalizationService).inSingletonScope()
+
+  // Agents
+  bind<IFunctionalityAgent>(CoreSymbols.FunctionalityAgent).to(FunctionalityAgent).inTransientScope()
+
+  // Loaders
+  bind<ISchemaLoader>(CoreSymbols.SchemaLoader).to(SchemaLoader).inSingletonScope()
 });

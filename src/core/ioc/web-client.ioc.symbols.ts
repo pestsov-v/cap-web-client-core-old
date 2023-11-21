@@ -14,4 +14,10 @@ export const CoreSymbols = {
 
   // Integration
   MapboxIntegration: Symbol('MapboxIntegration'),
+
+  // Agents
+  FunctionalityAgent: Symbol('FunctionalityAgent'),
+
+  // Loaders
+  SchemaLoader: Symbol('SchemaLoader')
 } as const;
