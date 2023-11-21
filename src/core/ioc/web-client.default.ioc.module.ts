@@ -4,7 +4,7 @@ import {CoreSymbols} from "@CoreSymbols";
 
 import { Initiator } from '../initiator';
 import {IntegrationConnector, ServiceConnector} from '../connectors';
-import {  DiscoveryService, GetawayService, LoggerService} from '../services';
+import {DiscoveryService, GetawayService, LocalizationService, LoggerService} from '../services';
 
 import {Inversify} from "@Packages/Types";
 import {
@@ -13,7 +13,7 @@ import {
   IServiceConnector,
   IDiscoveryService,
   ILoggerService,
-  IMapboxIntegration
+  IMapboxIntegration, ILocalizationService
 } from "@Core/Types";
 import {MapboxIntegration} from "../integrations";
 
@@ -33,4 +33,5 @@ export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.B
   bind<IDiscoveryService>(CoreSymbols.DiscoveryService).to(DiscoveryService).inSingletonScope();
   bind<IGetawayService>(CoreSymbols.GetawayService).to(GetawayService).inSingletonScope()
   bind<ILoggerService>(CoreSymbols.LoggerService).to(LoggerService).inSingletonScope()
+  bind<ILocalizationService>(CoreSymbols.LocalizationService).to(LocalizationService).inSingletonScope()
 });

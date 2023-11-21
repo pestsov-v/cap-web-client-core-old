@@ -10,6 +10,7 @@ export const CoreSymbols = {
   DiscoveryService: Symbol('DiscoveryService'),
   GetawayService: Symbol('GetawayService'),
   LoggerService: Symbol('LoggerService'),
+  LocalizationService: Symbol('LocalizationService'),
 
   // Integration
   MapboxIntegration: Symbol('MapboxIntegration'),
