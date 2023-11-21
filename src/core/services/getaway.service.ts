@@ -23,4 +23,14 @@ export class GetawayService  extends AbstractService implements  IGetawayService
     protected async destroy(): Promise<void> {
         return Promise.resolve(undefined);
     }
+
+    public get routes() {
+        // - change from service to provider
+        // TODO: https://gitlab.infotech.gov.ua/business/driverportal/-/blob/master/packages/web-ui/lib/services/api.ts
+
+        // TODO: implement models for core structure
+        return {
+            getProfile: async () => {}
+        }
+    }
 }
