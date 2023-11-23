@@ -1,7 +1,7 @@
 import inversify from 'inversify';
 import axios from 'axios';
 import redux from '@reduxjs/toolkit';
-import { UnknownObject } from '../utility';
+import { UnknownObject } from '@Utility';
 import { NoInfer } from '@reduxjs/toolkit/src/tsHelpers';
 
 export namespace Inversify {

@@ -1,11 +1,10 @@
 import { Packages } from '@Packages';
-
 const { injectable } = Packages.inversify;
 const { createSlice } = Packages.redux;
+import { UnknownObject } from '@Utility';
 
-import { ISchemaLoader, NSchemaLoader } from '@Core/Types';
-import { Redux } from '@/Packages/Types';
-import { UnknownObject } from '../../../types/core/utility';
+import type { Redux } from '@/Packages/Types';
+import type { ISchemaLoader, NSchemaLoader } from '@Core/Types';
 
 @injectable()
 export class SchemaLoader implements ISchemaLoader {

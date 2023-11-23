@@ -1,9 +1,8 @@
 import { Packages } from '@Packages';
-
 const { injectable, inject } = Packages.inversify;
-
 import { CoreSymbols } from '@CoreSymbols';
 import { AbstractConnector } from './abstract.connector';
+
 import type {
   IDiscoveryService,
   IGetawayService,

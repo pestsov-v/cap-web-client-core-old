@@ -1,4 +1,4 @@
-import { IAbstractService } from '@Core/Types';
+import type { IAbstractService } from '@Core/Types';
 
 export interface IGetawayService extends IAbstractService {}
 

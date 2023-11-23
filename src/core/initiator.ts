@@ -1,7 +1,7 @@
 import { Packages } from '@Packages';
-
 const { injectable, inject } = Packages.inversify;
 import { CoreSymbols } from '@CoreSymbols';
+
 import type { IInitiator, IDiscoveryService, IIntegrationConnector } from '@Core/Types';
 
 @injectable()

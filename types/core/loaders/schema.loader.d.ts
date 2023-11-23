@@ -1,18 +1,14 @@
-import { HttpMethod, Nullable, StringObject, UnknownObject } from '../utility';
-import { Redux } from '@/Packages/Types';
+import type { HttpMethod, Nullable, StringObject, UnknownObject } from '@Utility';
+import type { Redux } from '@/Packages/Types';
 
 export interface ISchemaLoader {
   readonly domains: NSchemaLoader.Domains;
   readonly reducers: NSchemaLoader.Reducers;
 
   init(): Promise<void>;
-
   destroy(): Promise<void>;
-
   setDomain(domain: string): void;
-
   setGetaway(domain: string, routes: NSchemaLoader.Route): void;
-
   setSlice(domain: string, name: string, slice: NSchemaLoader.Slice<unknown>): void;
 }
 
@@ -36,20 +32,6 @@ export namespace NSchemaLoader {
   export type Documents = {
     getaway?: symbol;
     slice?: symbol;
-  };
-  export type ControllerHandler<
-    BODY extends UnknownObject = UnknownObject,
-    QUERY extends StringObject = StringObject,
-    HEADERS extends StringObject = StringObject,
-  > = (body?: BODY, query?: QUERY, headers?: HEADERS) => Promise<void>;
-
-  export type ControllerHandlers<
-    NAME extends string,
-    BODY extends UnknownObject = UnknownObject,
-    QUERY extends StringObject = StringObject,
-    HEADERS extends StringObject = StringObject,
-  > = {
-    [key in NAME]: ControllerHandler<BODY, QUERY, HEADERS>;
   };
 
   export type Slice<

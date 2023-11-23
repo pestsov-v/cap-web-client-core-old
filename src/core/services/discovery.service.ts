@@ -1,9 +1,8 @@
 import { Packages } from '@Packages';
-
 const { injectable } = Packages.inversify;
 import { AbstractService } from './abstract.service';
 
-import { IDiscoveryService } from '@Core/Types';
+import type { IDiscoveryService } from '@Core/Types';
 
 @injectable()
 export class DiscoveryService extends AbstractService implements IDiscoveryService {

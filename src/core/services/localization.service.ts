@@ -1,7 +1,6 @@
 import { Packages } from '@Packages';
-import { AbstractService } from './abstract.service';
-
 const { injectable, inject } = Packages.inversify;
+import { AbstractService } from './abstract.service';
 import { CoreSymbols } from '@CoreSymbols';
 
 import type { ILocalizationService, NLocalizationService, IDiscoveryService } from '@Core/Types';

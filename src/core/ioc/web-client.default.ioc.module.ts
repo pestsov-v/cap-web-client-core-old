@@ -1,8 +1,6 @@
 import { Packages } from '@Packages';
-
 const { ContainerModule } = Packages.inversify;
 import { CoreSymbols } from '@CoreSymbols';
-
 import { Initiator } from '../initiator';
 import { IntegrationConnector, ServiceConnector } from '../connectors';
 import {
@@ -11,10 +9,13 @@ import {
   LocalizationService,
   LoggerService,
   SchemaService,
+  StoreService,
 } from '../services';
+import { MapboxIntegration } from '../integrations';
+import { SchemaLoader } from '../loaders';
 
-import { Inversify } from '@/Packages/Types';
-import {
+import type { Inversify } from '@/Packages/Types';
+import type {
   IGetawayService,
   IInitiator,
   IServiceConnector,
@@ -26,9 +27,6 @@ import {
   ISchemaService,
   IStoreService,
 } from '@Core/Types';
-import { MapboxIntegration } from '../integrations';
-import { SchemaLoader } from '../loaders/schema.loader';
-import { StoreService } from '../services/store.service';
 
 export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.Bind) => {
   // Initiator

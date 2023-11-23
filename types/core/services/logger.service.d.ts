@@ -1,4 +1,4 @@
-import { IAbstractService } from './abstract.service';
+import type { IAbstractService } from './abstract.service';
 
 export interface ILoggerService extends IAbstractService {}
 

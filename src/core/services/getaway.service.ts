@@ -1,13 +1,12 @@
 import { Packages } from '@Packages';
-
 const { injectable, inject } = Packages.inversify;
 const { axios } = Packages.axios;
 import { CoreSymbols } from '@CoreSymbols';
 import { AbstractService } from './abstract.service';
+import { UnknownObject } from '@Utility';
 
-import { Axios } from '@/Packages/Types';
+import type { Axios } from '@/Packages/Types';
 import type { IDiscoveryService, IGetawayService, NGetawayService } from '@Core/Types';
-import { UnknownObject } from '../../../types/core/utility';
 
 @injectable()
 export class GetawayService extends AbstractService implements IGetawayService {

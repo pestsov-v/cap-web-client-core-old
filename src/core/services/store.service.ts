@@ -1,11 +1,11 @@
 import { Packages } from '@Packages';
-import { Redux } from '@/Packages/Types';
-import { CoreSymbols } from '@CoreSymbols';
-import type { IDiscoveryService, ISchemaService, IStoreService } from '@Core/Types';
-import { AbstractService } from './abstract.service';
-
 const { injectable, inject } = Packages.inversify;
 const { configureStore } = Packages.redux;
+import { CoreSymbols } from '@CoreSymbols';
+import { AbstractService } from './abstract.service';
+
+import type { Redux } from '@/Packages/Types';
+import type { IDiscoveryService, ISchemaService, IStoreService } from '@Core/Types';
 
 @injectable()
 export class StoreService extends AbstractService implements IStoreService {

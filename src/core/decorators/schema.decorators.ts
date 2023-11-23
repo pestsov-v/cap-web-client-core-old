@@ -1,5 +1,6 @@
-import { ISchemaLoader, NSchemaLoader } from '@Core/Types';
 import { MetadataKeys } from '@Common';
+
+import type { ISchemaLoader, NSchemaLoader } from '@Core/Types';
 
 export function Collect(domain: string, documents: NSchemaLoader.Documents) {
   return function <T extends { new (...args: any[]): {} }>(target: T) {

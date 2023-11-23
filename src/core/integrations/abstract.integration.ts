@@ -1,7 +1,5 @@
 import { Packages } from '@Packages';
-
 const { injectable } = Packages.inversify;
-
 import { IAbstractIntegration, IDiscoveryService } from '@Core/Types';
 
 @injectable()

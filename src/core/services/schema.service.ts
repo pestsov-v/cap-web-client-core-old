@@ -1,5 +1,4 @@
 import { Packages } from '@Packages';
-
 const { injectable, inject } = Packages.inversify;
 import { CoreSymbols } from '@CoreSymbols';
 import { container } from '@Container';
