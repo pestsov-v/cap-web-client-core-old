@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.2",
+    "framer-motion": "^10.16.5",
     "inversify": "^6.0.2",
     "mapbox-gl": "^2.15.0",
     "next": "14.0.3",
