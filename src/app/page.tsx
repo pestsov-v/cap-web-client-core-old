@@ -1,17 +1,14 @@
-import 'reflect-metadata'
-import {container} from "@Container";
-import {IInitiator} from "@Core/Types";
-import {CoreSymbols} from "@CoreSymbols";
+import 'reflect-metadata';
+import { container } from '@Container';
+import { IInitiator } from '@Core/Types';
+import { CoreSymbols } from '@CoreSymbols';
 
 export default async function Home() {
-
   try {
-    await container.get<IInitiator>(CoreSymbols.Initiator).start()
+    await container.get<IInitiator>(CoreSymbols.Initiator).start();
   } catch (e) {
-    await container.get<IInitiator>(CoreSymbols.Initiator).stop()
+    throw e;
   }
 
-  return (
-      <h1>Консольна</h1>
-  )
+  return <h1></h1>;
 }

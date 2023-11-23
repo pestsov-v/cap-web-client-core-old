@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2021",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -24,13 +28,23 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@Core/Types": ["./types/core/index.ts"],
+      "@Core/Types": ["./types/core/index.d.ts"],
       "@Packages": ["./src/core/packages/packages.ts"],
-      "@Packages/Types": ["./types/core/packages/packages.d.ts"],
+      "@/Packages/Types": ["./types/core/packages/packages.d.ts"],
       "@CoreSymbols": ["./src/core/ioc/web-client.ioc.symbols.ts"],
-      "@Container": ["./src/core/ioc/container.ioc.ts"]
+      "@Container": ["./src/core/ioc/container.ioc.ts"],
+      "@Utility": ["./types/core/utility/index.d.ts"],
+      "@Common": ["./src/core/common/index.ts"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,12 +1,10 @@
-import {Packages} from "@Packages";
-import {IAbstractConnector} from "@Core/Types";
+import { Packages } from '@Packages';
+const { injectable } = Packages.inversify;
 
-const {injectable} = Packages.inversify
-
+import { IAbstractConnector } from '@Core/Types';
 
 @injectable()
 export abstract class AbstractConnector implements IAbstractConnector {
-    public abstract async start(): Promise<void>
-
-    public abstract async stop(): Promise<void>
+  public abstract start(): Promise<void>;
+  public abstract stop(): Promise<void>;
 }
