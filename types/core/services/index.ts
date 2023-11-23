@@ -1,6 +1,7 @@
-export * from './abstract.service'
-export * from './getaway.service'
-export * from './discovery.service.d'
-export * from './logger.service.d'
-export * from './localization.service'
-export * from './localization.service'
+export * from './abstract.service';
+export * from './getaway.service';
+export * from './discovery.service';
+export * from './logger.service.d';
+export * from './localization.service';
+export type * from './schema.service';
+export * from './store.service.d';

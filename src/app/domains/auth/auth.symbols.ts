@@ -1,3 +1,4 @@
 export const AuthSymbols = {
-    Getaway: Symbol('AuthGetaway')
-} as const
+  Getaway: Symbol('AuthGetaway'),
+  Slice: Symbol('AuthSlice'),
+} as const;

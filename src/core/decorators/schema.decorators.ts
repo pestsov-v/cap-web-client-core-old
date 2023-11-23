@@ -1,34 +1,44 @@
-import {ISchemaLoader, NSchemaLoader} from "@Core/Types";
-import {Nullable, StringObject, UnknownObject} from "../../../types/core/utility";
-import {MetadataKeys} from "@Common";
+import { ISchemaLoader, NSchemaLoader } from '@Core/Types';
+import { MetadataKeys } from '@Common';
 
 export function Collect(domain: string, documents: NSchemaLoader.Documents) {
-    return function <T extends { new (...args: any[]): {} }>(target: T) {
-        Reflect.defineMetadata(domain, documents, Reflect);
+  return function <T extends { new (...args: any[]): {} }>(target: T) {
+    Reflect.defineMetadata(domain, documents, Reflect);
 
     const loader = Reflect.getMetadata(MetadataKeys.SchemaLoader, Reflect) as ISchemaLoader;
     loader.setDomain(domain);
 
     if (documents.getaway) {
-        const getaway = Reflect.getMetadata(documents.getaway, Reflect) as NSchemaLoader.ControllerHandlers<string>
-        for (const path in getaway) {
-            loader.setController(domain, path, getaway[path])
-        }
+      const getaway = Reflect.getMetadata(documents.getaway, Reflect) as NSchemaLoader.Route[];
+      getaway.forEach((g) => loader.setGetaway(domain, g));
     }
 
-        return target;
-    };
+    if (documents.slice) {
+      const slices = Reflect.getMetadata(documents.slice, Reflect) as NSchemaLoader.Slices;
+      for (const slice in slices) {
+        loader.setSlice(domain, slice, slices[slice]);
+      }
+    }
+
+    return target;
+  };
 }
 
-export function Getaway<
-    N extends string,
-    BODY extends UnknownObject = UnknownObject,
-    QUERY extends StringObject = StringObject,
-    HEADERS extends StringObject = StringObject
->(name: symbol, routes: {[key in N]: (body?: Nullable<BODY>, query?: Nullable<QUERY>, headers?: Nullable<HEADERS>) => Promise<any>}) {
-    return function <T extends { new (...args: any[]): {} }>(target: T) {
-        Reflect.defineMetadata(name, routes, Reflect);
+export function Getaway<PATH extends string = string>(
+  name: symbol,
+  routes: NSchemaLoader.Route<PATH>[]
+) {
+  return function <T extends { new (...args: any[]): {} }>(target: T) {
+    Reflect.defineMetadata(name, routes, Reflect);
 
-        return target;
-    };
+    return target;
+  };
+}
+
+export function Slice<T extends NSchemaLoader.Slices>(name: symbol, configuration: T) {
+  return function <T extends { new (...args: any[]): {} }>(target: T) {
+    Reflect.defineMetadata(name, configuration, Reflect);
+
+    return target;
+  };
 }

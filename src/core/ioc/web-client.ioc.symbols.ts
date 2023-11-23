@@ -11,6 +11,8 @@ export const CoreSymbols = {
   GetawayService: Symbol('GetawayService'),
   LoggerService: Symbol('LoggerService'),
   LocalizationService: Symbol('LocalizationService'),
+  SchemaService: Symbol('SchemaService'),
+  StoreService: Symbol('StoreService'),
 
   // Integration
   MapboxIntegration: Symbol('MapboxIntegration'),

@@ -1,11 +1,10 @@
 import {IAbstractService} from "./abstract.service";
-import {I18n} from "@Packages/Types";
 
 export interface ILocalizationService extends IAbstractService {
     readonly supportedLanguages: string[]
     readonly defaultLanguage: string
 
-    addResources(ln: string, resources: I18n.Resource[]): void
+    addResources(ln: string, resources: NLocalizationService.Dictionary): void
     t(application: string, domain: string, ln: string, resource: string, substitutions?: Record<string, string>): void
 }
 

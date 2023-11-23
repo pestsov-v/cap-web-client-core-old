@@ -1,24 +1,34 @@
-import {Packages} from "@Packages";
+import { Packages } from '@Packages';
+
 const { ContainerModule } = Packages.inversify;
-import {CoreSymbols} from "@CoreSymbols";
+import { CoreSymbols } from '@CoreSymbols';
 
 import { Initiator } from '../initiator';
-import {IntegrationConnector, ServiceConnector} from '../connectors';
-import {DiscoveryService, GetawayService, LocalizationService, LoggerService} from '../services';
+import { IntegrationConnector, ServiceConnector } from '../connectors';
+import {
+  DiscoveryService,
+  GetawayService,
+  LocalizationService,
+  LoggerService,
+  SchemaService,
+} from '../services';
 
-import {Inversify} from "@Packages/Types";
+import { Inversify } from '@/Packages/Types';
 import {
   IGetawayService,
   IInitiator,
   IServiceConnector,
   IDiscoveryService,
   ILoggerService,
-  IMapboxIntegration, ILocalizationService, IFunctionalityAgent, ISchemaLoader
-} from "@Core/Types";
-import {MapboxIntegration} from "../integrations";
-import {FunctionalityAgent} from "../agents";
-import {SchemaLoader} from "../loaders/schema.loader";
-
+  IMapboxIntegration,
+  ILocalizationService,
+  ISchemaLoader,
+  ISchemaService,
+  IStoreService,
+} from '@Core/Types';
+import { MapboxIntegration } from '../integrations';
+import { SchemaLoader } from '../loaders/schema.loader';
+import { StoreService } from '../services/store.service';
 
 export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.Bind) => {
   // Initiator
@@ -26,20 +36,23 @@ export const WebClientModule = new ContainerModule((bind: Inversify.interfaces.B
 
   // Connectors
   bind<IServiceConnector>(CoreSymbols.ServiceConnector).to(ServiceConnector).inSingletonScope();
-  bind<IMapboxIntegration>(CoreSymbols.IntegrationConnector).to(IntegrationConnector).inSingletonScope()
+  bind<IMapboxIntegration>(CoreSymbols.IntegrationConnector)
+    .to(IntegrationConnector)
+    .inSingletonScope();
 
   // Integrations
-  bind<IMapboxIntegration>(CoreSymbols.MapboxIntegration).to(MapboxIntegration).inSingletonScope()
+  bind<IMapboxIntegration>(CoreSymbols.MapboxIntegration).to(MapboxIntegration).inSingletonScope();
 
   // Services
   bind<IDiscoveryService>(CoreSymbols.DiscoveryService).to(DiscoveryService).inSingletonScope();
-  bind<IGetawayService>(CoreSymbols.GetawayService).to(GetawayService).inSingletonScope()
-  bind<ILoggerService>(CoreSymbols.LoggerService).to(LoggerService).inSingletonScope()
-  bind<ILocalizationService>(CoreSymbols.LocalizationService).to(LocalizationService).inSingletonScope()
-
-  // Agents
-  bind<IFunctionalityAgent>(CoreSymbols.FunctionalityAgent).to(FunctionalityAgent).inTransientScope()
+  bind<IGetawayService>(CoreSymbols.GetawayService).to(GetawayService).inSingletonScope();
+  bind<ILoggerService>(CoreSymbols.LoggerService).to(LoggerService).inSingletonScope();
+  bind<ILocalizationService>(CoreSymbols.LocalizationService)
+    .to(LocalizationService)
+    .inSingletonScope();
+  bind<ISchemaService>(CoreSymbols.SchemaService).to(SchemaService).inSingletonScope();
+  bind<IStoreService>(CoreSymbols.StoreService).to(StoreService).inSingletonScope();
 
   // Loaders
-  bind<ISchemaLoader>(CoreSymbols.SchemaLoader).to(SchemaLoader).inSingletonScope()
+  bind<ISchemaLoader>(CoreSymbols.SchemaLoader).to(SchemaLoader).inSingletonScope();
 });

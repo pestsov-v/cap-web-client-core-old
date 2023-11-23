@@ -1,3 +1,3 @@
-import {IAbstractConnector} from "@Core/Types";
+import { IAbstractConnector } from './abstract.connector';
 
 export interface IIntegrationConnector extends IAbstractConnector {}
